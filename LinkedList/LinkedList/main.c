@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include "LinkedList.h"
-#include <stdlib.h>
 
 void PrintDatas(linked_list* list)
 {
