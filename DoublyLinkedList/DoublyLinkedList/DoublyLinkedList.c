@@ -113,7 +113,7 @@ Node* GetNextNode(Node* node)
 	return node->next;
 }
 
-Node* GetBeforeNode(Node* node)
+Node* GetPrevNode(Node* node)
 {
 	return node->prev;
 }

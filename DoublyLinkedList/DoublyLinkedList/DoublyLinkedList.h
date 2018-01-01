@@ -19,4 +19,4 @@ void RemoveTail(DoublyLinkedList* list);
 Node* GetHead(DoublyLinkedList* list);
 Node* GetTail(DoublyLinkedList* list);
 Node* GetNextNode(Node* node);
-Node* GetBeforeNode(Node* node);
+Node* GetPrevNode(Node* node);

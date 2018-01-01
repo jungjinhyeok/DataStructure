@@ -25,7 +25,7 @@ void PrintTailSearch(DoublyLinkedList list)
 	while(node)
 	{
 		printf("%d ", node->data);
-		node = GetBeforeNode(node);
+		node = GetPrevNode(node);
 	}
 
 	printf("\n");
