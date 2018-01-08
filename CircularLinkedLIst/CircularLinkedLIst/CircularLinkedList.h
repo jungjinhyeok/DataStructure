@@ -16,4 +16,4 @@ void AddHead(CircularLinkedList* list, const int data);
 void AddTail(CircularLinkedList* list, const int data);
 void AddSpecific(CircularLinkedList* list, const int pos, const int data);
 void Remove(CircularLinkedList* list, const int pos);
-int GetNextNodeData(CircularLinkedList* list, int* data);
+void GetNextNodeData(CircularLinkedList* list, int* data);

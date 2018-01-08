@@ -98,13 +98,13 @@ void Remove(CircularLinkedList* list, const int pos)
 	free(current);
 }
 
-int GetNextNodeData(CircularLinkedList* list, int* data)
+void GetNextNodeData(CircularLinkedList* list, int* data)
 {
 	if (list->count == 0)
 	{
 		printf("데이터를 삭제할 수 없습니다...\n");
 
-		return 0;
+		return;
 	}
 	
 	if (list->current == NULL)
@@ -112,8 +112,6 @@ int GetNextNodeData(CircularLinkedList* list, int* data)
 
 	*data = list->current->data;
 	list->current = list->current->next;
-
-	return 1;
 }
 
 
