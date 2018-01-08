@@ -14,6 +14,7 @@ void AddHead(CircularLinkedList* list, const int data)
 	Node* node = (Node*)malloc(sizeof(Node));
 
 	node->data = data;
+	list->count++;
 
 	if (list->tail == NULL)
 	{
@@ -25,7 +26,6 @@ void AddHead(CircularLinkedList* list, const int data)
 	
 	node->next = list->tail->next;
 	list->tail->next = node;
-	list->count++;
 }
 
 void AddTail(CircularLinkedList* list, const int data)
@@ -33,6 +33,7 @@ void AddTail(CircularLinkedList* list, const int data)
 	Node* node = (Node*)malloc(sizeof(Node));
 
 	node->data = data;
+	list->count++;
 
 	if (list->tail == NULL)
 	{
@@ -45,7 +46,6 @@ void AddTail(CircularLinkedList* list, const int data)
 	node->next = list->tail->next;
 	list->tail->next = node;
 	list->tail = node;
-	list->count++;
 }
 
 void AddSpecific(CircularLinkedList* list, const int pos, const int data)
@@ -87,6 +87,7 @@ void Remove(CircularLinkedList* list, const int pos)
 	Node* prev = list->tail;
 	Node* current = list->tail->next;
 	list->count--;
+
 	for (int i = 0; i<pos; i++)
 	{
 		prev = current;
@@ -98,13 +99,13 @@ void Remove(CircularLinkedList* list, const int pos)
 	free(current);
 }
 
-void GetNextNodeData(CircularLinkedList* list, int* data)
+int GetNextNodeData(CircularLinkedList* list, int* data)
 {
 	if (list->count == 0)
 	{
-		printf("데이터를 삭제할 수 없습니다...\n");
+		printf("데이터가 없습니다...\n");
 
-		return;
+		return 0;
 	}
 	
 	if (list->current == NULL)
@@ -112,6 +113,8 @@ void GetNextNodeData(CircularLinkedList* list, int* data)
 
 	*data = list->current->data;
 	list->current = list->current->next;
+
+	return 1;
 }
 
 

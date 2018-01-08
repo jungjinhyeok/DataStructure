@@ -7,8 +7,10 @@ void PrintDatas(CircularLinkedList list, const int num)
 
 	for(int i=0; i<num;i++)
 	{
-		GetNextNodeData(&list, &data);
-		printf("%d ", data);
+		if (GetNextNodeData(&list, &data))
+			printf("%d ", data);
+		else
+			break;
 	}
 	printf("\n");
 }
@@ -30,8 +32,13 @@ int main(void)
 
 	PrintDatas(list, 7);
 
-	Remove(&list, 0);
-	Remove(&list, 2);
+	Remove(&list, 1);
+	Remove(&list, 3);
 
 	PrintDatas(list, 10);
+
+	for (int i = 0; i < 5; i++)
+		Remove(&list, 0);
+
+	PrintDatas(list, 5);
 }
