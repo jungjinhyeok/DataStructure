@@ -8,7 +8,7 @@ void Init(DoublyLinkedList* list)
 	list->tail = NULL;
 }
 
-void AddHead(DoublyLinkedList* list, int data)
+void AddHead(DoublyLinkedList* list, const int data)
 {
 	Node* node = (Node*)malloc(sizeof(Node));
 
@@ -32,7 +32,7 @@ void AddHead(DoublyLinkedList* list, int data)
 	list->head = node;
 }
 
-void AddTail(DoublyLinkedList* list, int data)
+void AddTail(DoublyLinkedList* list, const int data)
 {
 	Node* node = (Node*)malloc(sizeof(Node));
 

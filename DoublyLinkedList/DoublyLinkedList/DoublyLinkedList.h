@@ -12,8 +12,8 @@ typedef struct doubly_linked_list
 }DoublyLinkedList;
 
 void Init(DoublyLinkedList* list);
-void AddHead(DoublyLinkedList* list, int data);
-void AddTail(DoublyLinkedList* list, int data);
+void AddHead(DoublyLinkedList* list, const int data);
+void AddTail(DoublyLinkedList* list, const int data);
 void RemoveHead(DoublyLinkedList* list);
 void RemoveTail(DoublyLinkedList* list);
 Node* GetHead(DoublyLinkedList* list);
