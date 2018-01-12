@@ -95,7 +95,7 @@ node* GetHeadNode(linked_list* list)
 
 node* GetNextNode(linked_list* list)
 {
-	if (list->head == NULL)
+	if (list->current == NULL)
 		return NULL;
 
 	list->current = list->current->next;
