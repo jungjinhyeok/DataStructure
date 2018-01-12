@@ -86,37 +86,6 @@ void RemoveLast(linked_list* list)
 	free(temp);
 }
 
-void Remove(linked_list* list, const int pos)
-{
-	if(list->count < pos)
-	{
-		printf("데이터가 없습니다...");
-
-		return;
-	}
-
-	node* current = list->head;
-	node* prev = NULL;
-	list->count--;
-
-	for (int i = 0; i < pos; i++)
-	{
-		prev = current;
-		current = current->next;
-	}
-
-	if(current == list->head)
-	{
-		list->head = list->head->next;
-	}
-	else
-	{
-		prev->next = current->next;
-	}
-
-	free(current);
-}
-
 node* GetHeadNode(linked_list* list)
 {
 	list->current = list->head;
