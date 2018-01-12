@@ -1,70 +1,134 @@
 #include "LinkedList.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 void Init(linked_list* list)
 {
 	list->count = 0;
 	list->head = NULL;
+	list->tail = NULL;
 	list->current = NULL;
-	list->before = NULL;
 }
 
-void Insert(linked_list* list, const int data)
+void AddLast(linked_list* list, const int data)
 {
 	node* nd = (node*)malloc(sizeof(node));
 
 	nd->data = data;
 	nd->next = NULL;
 
-	if(list->head == NULL)
+	if (list->head == NULL)
+	{
 		list->head = nd;
+		list->tail = nd;
+	}
 	else
 	{
-		node* current = list->head;
-
-		while (current->next != NULL)
-			current = current->next;
-
-		current->next = nd;
+		list->tail->next = nd;
+		list->tail = nd;
 	}
 
 	list->count++;
 }
 
-void Remove(linked_list* list)
+void AddFirst(linked_list* list, const int data)
 {
-	node* temp = list->current;
-	list->count--;
+	node* nd = (node*)malloc(sizeof(node));
 
-	if(list->before == NULL)
+	nd->data = data;	 
+	nd->next = list->head;
+
+	if (list->head == NULL)
 	{
-		list->head = list->head->next;
-		list->current = list->head;
-		free(temp);
-
-		return;
+		list->head = nd;
+		list->tail = nd;
+	}
+	else
+	{
+		list->head = nd;
 	}
 
-	list->before->next = list->current->next;
-	list->current = list->current->next;
+	list->count++;
+}
+
+void RemoveFirst(linked_list* list)
+{
+	if(list->count == 0)
+	{
+		printf("데이터가 없습니다...");
+		return;
+	}
+	node* temp = list->head;
+	list->head = list->head->next;
+	list->count--;
 
 	free(temp);
 }
 
-node* GetNode(linked_list* list)
+void RemoveLast(linked_list* list)
+{
+	if (list->count == 0)
+	{
+		printf("데이터가 없습니다...");
+		return;
+	}
+
+	node* temp = list->tail;
+	node* nd = list->head;
+	list->count--;
+
+	while (nd->next != list->tail)
+		nd = nd->next;
+
+	nd->next = NULL;
+	list->tail = nd;
+
+	free(temp);
+}
+
+void Remove(linked_list* list, const int pos)
+{
+	if(list->count < pos)
+	{
+		printf("데이터가 없습니다...");
+
+		return;
+	}
+
+	node* current = list->head;
+	node* prev = NULL;
+	list->count--;
+
+	for (int i = 0; i < pos; i++)
+	{
+		prev = current;
+		current = current->next;
+	}
+
+	if(current == list->head)
+	{
+		list->head = list->head->next;
+	}
+	else
+	{
+		prev->next = current->next;
+	}
+
+	free(current);
+}
+
+node* GetHeadNode(linked_list* list)
+{
+	list->current = list->head;
+
+	return list->head;
+}
+
+node* GetNextNode(linked_list* list)
 {
 	if (list->head == NULL)
 		return NULL;
 
-	if (list->current == NULL)
-	{
-		list->before = NULL;
-		list->current = list->head;
-
-		return list->head;
-	}
-
-	list->before = list->current;
 	list->current = list->current->next;
 
 	return list->current;
@@ -74,4 +138,3 @@ int GetDataNums(const linked_list list)
 {
 	return list.count;
 }
-

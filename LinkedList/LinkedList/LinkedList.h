@@ -8,12 +8,16 @@ typedef struct linked_list
 {
 	int count;
 	node* head;
+	node* tail;
 	node* current;
-	node* before;
 }linked_list;
 
 void Init(linked_list* list);
-void Insert(linked_list* list, const int data);
-void Remove(linked_list* list);
-node* GetNode(linked_list* list);
+void AddLast(linked_list* list, const int data);
+void AddFirst(linked_list* list, const int data);
+void RemoveFirst(linked_list* list);
+void RemoveLast(linked_list* list);
+void Remove(linked_list* list, const int pos);
+node* GetHeadNode(linked_list* list);
+node* GetNextNode(linked_list* list);
 int GetDataNums(linked_list list);
