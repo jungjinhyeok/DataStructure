@@ -26,8 +26,10 @@ int main(void)
 		AddLast(&list, i);
 
 	PrintDatas(&list);
+
 	RemoveLast(&list);
 	RemoveFirst(&list);
+
 	PrintDatas(&list);
 	return 0;
 }

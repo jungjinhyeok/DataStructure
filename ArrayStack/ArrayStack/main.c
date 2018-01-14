@@ -1,12 +1,12 @@
-#include "ArrayStack.h"
+#include "Stack.h"
 #include <stdio.h>
 
 int main(void)
 {
-	ArrayStack stack;
+	Stack stack;
 	int datas[5] = { 2, 3, 5, 1, 0 };
 
-	Init(&stack, 5);
+	StackInit(&stack, 5);
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -15,9 +15,9 @@ int main(void)
 	}
 
 	printf("--------------\n");
-	while (!IsEmpty(&stack))
+	while (!IsEmpty(stack))
 	{
-		printf("Top %d\n", Top(&stack));
+		printf("Top %d\n", Top(stack));
 		printf("Pop %d \n", Pop(&stack));
 		printf("--------------\n");
 	}
