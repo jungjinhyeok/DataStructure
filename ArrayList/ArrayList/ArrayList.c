@@ -1,9 +1,11 @@
 #include "ArrayList.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-void Init(array_list* list)
+void Init(array_list* list, const int size)
 {
+	list->datas = (int*)malloc(sizeof(int)*size);
 	list->count = 0;
-	list->cur_pos = 0;
 }
 
 void Add(array_list* list, const int data)

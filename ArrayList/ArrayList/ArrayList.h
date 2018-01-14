@@ -1,13 +1,10 @@
-#include <stdio.h>
-
 typedef struct arraylist
 {
-	int datas[10];
+	int* datas;
 	int count;
-	int cur_pos;
 }array_list;
 
-void Init(array_list* list);
+void Init(array_list* list, const int size);
 void Add(array_list* list, const int data);
 void RemoveFirst(array_list* list);
 void RemoveLast(array_list* list);

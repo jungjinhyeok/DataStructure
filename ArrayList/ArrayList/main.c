@@ -1,4 +1,5 @@
 #include "ArrayList.h"
+#include <stdio.h>
 
 void PrintDatas(array_list list, int data)
 {
@@ -12,10 +13,10 @@ void PrintDatas(array_list list, int data)
 int main(void)
 {
 	array_list list;
-	int data = 0;
+	const int data = 0;
 	int datas[5] = {1, 2, 3, 4, 5};
 
-	Init(&list);
+	Init(&list, 5);
 	
 	for (int i = 0; i < 5; i++)
 		Add(&list, datas[i]);
