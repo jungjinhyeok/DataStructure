@@ -24,7 +24,7 @@ void RemoveFirst(array_list* list)
 
 	for(int i=0; i<list->count-1; i++)
 	{
-		list->datas[i] = list->datas[i+1];
+		list->datas[i] = list->datas[i + 1];
 	}
 
 	list->count--;
