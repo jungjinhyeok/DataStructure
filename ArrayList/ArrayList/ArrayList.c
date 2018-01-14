@@ -1,18 +1,45 @@
 #include "ArrayList.h"
 
-void init(array_list* list)
+void Init(array_list* list)
 {
 	list->count = 0;
 	list->cur_pos = 0;
 }
 
-void insert_data(array_list* list, const int data)
+void Add(array_list* list, const int data)
 {
 	list->datas[list->count] = data;
 	list->count++;
 }
 
-void remove_data(array_list* list, const int index)
+void RemoveFirst(array_list* list)
+{
+	if(list->count == 0)
+	{
+		printf("데이터가 없습니다...\n");
+		return;
+	}
+
+	for(int i=1; i<list->count-1; i++)
+	{
+		list->datas[i - 1] = list->datas[i];
+	}
+
+	list->count--;
+}
+
+void RemoveLast(array_list* list)
+{
+	if (list->count == 0)
+	{
+		printf("데이터가 없습니다...\n");
+		return;
+	}
+
+	list->count--;
+}
+
+void Remove(array_list* list, const int index)
 {
 	if(list->count > 0)
 	{
@@ -27,20 +54,20 @@ void remove_data(array_list* list, const int index)
 	printf("데이터가 없습니다...\n");
 }
 
-int get_data(array_list* list, int* data)
+int GetData(array_list* list, int* data, const int pos)
 {
-	if(list->count > 0)
+	if(list->count <= pos)
 	{
-		*data = list->datas[list->cur_pos++];
-
-		if(list->cur_pos > list->count)
-		{
-			list->cur_pos = 0;
-			return 0;
-		}
-
-		return 1;
+		printf("해당 인덱스에 데이터가 없습니다...\n");
+		return 0;
 	}
 
-	return 0;
+	*data = list->datas[pos];
+
+	return 1;
+}
+
+int GetDataNum(array_list* list)
+{
+	return list->count;
 }

@@ -7,7 +7,10 @@ typedef struct arraylist
 	int cur_pos;
 }array_list;
 
-void init(array_list* list);
-void insert_data(array_list* list, const int data);
-void remove_data(array_list* list, const int index);
-int get_data(array_list* list, int* data);
+void Init(array_list* list);
+void Add(array_list* list, const int data);
+void RemoveFirst(array_list* list);
+void RemoveLast(array_list* list);
+void Remove(array_list* list, const int index);
+int GetData(array_list* list, int* data, const int pos);
+int GetDataNum(array_list* list);

@@ -1,32 +1,35 @@
 #include "ArrayList.h"
 
+void PrintDatas(array_list list, int data)
+{
+	for (int i = 0; i < GetDataNum(&list); i++)
+	{
+		GetData(&list, &data, i);
+		printf("%d ", data);
+	}
+}
+
 int main(void)
 {
 	array_list list;
-	int data;
+	int data = 0;
 	int datas[5] = {1, 2, 3, 4, 5};
 
-	init(&list);
+	Init(&list);
 	
 	for (int i = 0; i < 5; i++)
-		insert_data(&list, datas[i]);
+		Add(&list, datas[i]);
 
 	printf("배열 리스트에 데이터 추가\n");
 
-	while(get_data(&list, &data))
-	{
-		printf("%d ", data);
-	}
+	PrintDatas(list, data);
 
-	remove_data(&list, 2);
+	Remove(&list, 2);
 
 	printf("\n----------------\n");
 	printf("Index 2 삭제 후\n");
 
-	while (get_data(&list, &data))
-	{
-		printf("%d ", data);
-	}
+	PrintDatas(list, data);
 
 	return 0;
 }
