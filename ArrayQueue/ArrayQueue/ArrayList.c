@@ -5,11 +5,19 @@
 void Init(array_list* list, const int size)
 {
 	list->datas = (int*)malloc(sizeof(int)*size);
+	list->size = size;
 	list->count = 0;
 }
 
 void Add(array_list* list, const int data)
 {
+	if(list->size <= list->count)
+	{
+		printf("배열 안의 공간이 없습니다...\n");
+
+		return;
+	}
+
 	list->datas[list->count] = data;
 	list->count++;
 }

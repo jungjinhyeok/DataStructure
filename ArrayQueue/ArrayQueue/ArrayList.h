@@ -2,6 +2,7 @@ typedef struct arraylist
 {
 	int* datas;
 	int count;
+	int size;
 }array_list;
 
 void Init(array_list* list, const int size);
