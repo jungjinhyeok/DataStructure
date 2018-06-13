@@ -14,8 +14,8 @@ int dequeue(Queue* q)
 {
 	int result = -1;
 
-	if(GetFront(q->datas, &result))
-		RemoveFront(&q->datas);
+	GetFront(q->datas, &result);
+	RemoveFront(&q->datas);
 
 	return result;
 }
@@ -31,8 +31,8 @@ int get_rear(const Queue q)
 
 int is_empty(const Queue q)
 {
-	if (GetDataNum(q.datas) > 0)
-		return 0;
+	if (q.datas.front == q.datas.rear)
+		return 1;
 
-	return 1;
+	return 0;
 }

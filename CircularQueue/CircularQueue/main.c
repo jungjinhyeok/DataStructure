@@ -14,6 +14,8 @@ int main(void)
 		enqueue(&q, datas[i]);
 	}
 
+	enqueue(&q, 11);
+
 	while (!is_empty(q))
 	{
 		printf("-----------------\n");
@@ -22,5 +24,6 @@ int main(void)
 		printf("-----------------\n");
 	}
 
+	printf("%d ", dequeue(&q));
 	return 0;
 }
