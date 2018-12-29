@@ -2,7 +2,7 @@
 
 typedef struct _heap
 {
-	int data[100];
+	int data[1000010];
 	int num;
 }Heap;
 
