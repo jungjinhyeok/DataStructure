@@ -1,4 +1,5 @@
 #include "ListGraph.h"
+#include "Queue.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -94,4 +95,35 @@ void ShowListGraphInfo(ListGraph g)
 		}
 	}
 	printf("--------------------------\n");
+}
+
+void BFS(ListGraph g)
+{
+	char vertex[] = { 'A', 'B', 'C', 'D', 'E', 'F' };
+	Queue q;
+	queue_init(&q, g.vertex);
+	
+	int* is_searched = (int*)malloc(sizeof(int)*g.vertex);
+	for (int i = 0; i < g.vertex; i++)
+		is_searched[i] = 0;
+
+	is_searched[0] = 1;
+	enqueue(&q, 0);
+
+	while(!is_empty(q))
+	{
+		int v = dequeue(&q);
+		Node* node = g.node[v]->next;
+		printf("%c ", vertex[v]);
+
+		while(node != NULL)
+		{
+			if (is_searched[node->vertex] == 0)
+			{
+				enqueue(&q, node->vertex);
+				is_searched[node->vertex] = 1;
+			}
+			node = node->next;
+		}
+	}
 }

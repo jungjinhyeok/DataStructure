@@ -19,3 +19,4 @@ void InitListGraph(ListGraph* g, int kinds, int vertex);
 void InsertListEdge(ListGraph* g, int start, int end);
 void RemoveListEdge(ListGraph* g, int start, int end);
 void ShowListGraphInfo(ListGraph g);
+void BFS(ListGraph g);
